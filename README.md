@@ -15,7 +15,11 @@ API REST développée avec Laravel .
 | POST    | /api/register    | Inscription d'un utilisateur     | Non               |
 | POST    | /api/login       | Connexion                        | Non               |
 | GET     | /api/profile     | Récupérer le profil connecté     | Oui (Bearer token)|
-| PUT     | /api/profile     | Mettre à jour le profil          | Oui (Bearer token)|
+| PUT     | /api/profile     | Modifier un profil               | Oui (Bearer token)|
+| GET     | /api/notes       | Voir toutes les notes            | Non               |
+| POST    | /api/notes       | Ajouter une note                 | Oui (bearer token)|
+| PUT     | /api/notes       | Modifier une note                | Oui (bearer token)|
+| DELETE  | /api/notes       | Supprimer une note               | Oui (bearer token)|
 
 ## Installation locale
 

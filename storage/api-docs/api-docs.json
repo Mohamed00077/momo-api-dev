@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Kovo API",
-        "description": "API REST pour le test technique Backend Kovo - authentification et gestion du profil utilisateur.",
+        "title": "Momo API",
+        "description": "API de gestion de notes + authentification et gestion du profil utilisateur.",
         "version": "1.0.0"
     },
     "paths": {
@@ -103,6 +103,192 @@
                 }
             }
         },
+        "/api/notes": {
+            "get": {
+                "tags": [
+                    "Notes"
+                ],
+                "summary": "Lister toutes les notes (public)",
+                "operationId": "bae18c4794ae9fa2869bd2d6172e8bc1",
+                "responses": {
+                    "200": {
+                        "description": "Liste des notes"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Notes"
+                ],
+                "summary": "Créer une note",
+                "operationId": "b741a3f13d8dcdf760b41fbad8c68737",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "content"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Ma première note"
+                                    },
+                                    "content": {
+                                        "type": "string",
+                                        "example": "Contenu de la note"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Note créée"
+                    },
+                    "401": {
+                        "description": "Non authentifié"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/notes/{id}": {
+            "get": {
+                "tags": [
+                    "Notes"
+                ],
+                "summary": "Voir une note (public)",
+                "operationId": "00f78d61d63bb5da699bf8d59cffb990",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Note trouvée"
+                    },
+                    "404": {
+                        "description": "Note introuvable"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Notes"
+                ],
+                "summary": "Modifier sa note",
+                "operationId": "ad1a404f450c11ee4f3ae2c7cf82ee66",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Titre modifié"
+                                    },
+                                    "content": {
+                                        "type": "string",
+                                        "example": "Contenu modifié"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Note modifiée"
+                    },
+                    "400": {
+                        "description": "Aucune donnée à mettre à jour"
+                    },
+                    "401": {
+                        "description": "Non authentifié"
+                    },
+                    "403": {
+                        "description": "Ce n'est pas votre note"
+                    },
+                    "404": {
+                        "description": "Note introuvable"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Notes"
+                ],
+                "summary": "Supprimer sa note",
+                "operationId": "99dcc7e5a20cc64c35b75534a478c803",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Note supprimée"
+                    },
+                    "401": {
+                        "description": "Non authentifié"
+                    },
+                    "403": {
+                        "description": "Ce n'est pas votre note"
+                    },
+                    "404": {
+                        "description": "Note introuvable"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/profile": {
             "get": {
                 "tags": [
@@ -197,6 +383,10 @@
         {
             "name": "Authentification",
             "description": "Authentification"
+        },
+        {
+            "name": "Notes",
+            "description": "Notes"
         },
         {
             "name": "Profil",

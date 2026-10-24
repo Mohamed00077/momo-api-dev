@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 use OpenApi\Attributes as OA;
 
 #[OA\Info(
-    title: "Kovo API",
+    title: "Momo API",
     version: "1.0.0",
-    description: "API REST pour le test technique Backend Kovo - authentification et gestion du profil utilisateur."
+    description: "API de gestion de notes + authentification et gestion du profil utilisateur."
 )]
 #[OA\SecurityScheme(
     securityScheme: "bearerAuth",
