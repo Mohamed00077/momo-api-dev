@@ -1,4 +1,4 @@
-# Kôvo API — Test Technique Backend
+# Note API
 
 API REST développée avec Laravel .
 
@@ -25,7 +25,7 @@ API REST développée avec Laravel .
 
 1. Cloner le repo
    
-   git clone https://github.com/Mohamed00077/Test_technique_Backend_Kovo.git
+   git clone https://github.com/Mohamed00077/momo-api-dev.git
    cd Test_technique_Backend_Kovo
   
 
@@ -45,14 +45,14 @@ API REST développée avec Laravel .
    DB_CONNECTION=mysql | pgsql (En prod)
    DB_HOST=127.0.0.1
    DB_PORT=3306
-   DB_DATABASE=kovo_api
+   DB_DATABASE=note-api
    DB_USERNAME=root
    DB_PASSWORD=
   
 
 5. Créer la base de données puis migrer
    
-   CREATE DATABASE kovo_api;
+   CREATE DATABASE nota-api;
   
    
    php artisan migrate
@@ -69,10 +69,10 @@ Le service est hébergé sur le plan gratuit de Render : après 15 minutes
 d'inactivité, il se met en veille. La première requête suivante peut prendre 
 30-50 secondes le temps du redémarrage.
 
-- URL API : https://kovo-api.onrender.com
+- URL API : https://momo-api-dev-1.onrender.com/
 
 ## Documentation API
-- URL Documentation : https://kovo-api.onrender.com/api/documentation
+- URL Documentation : https://momo-api-dev-1.onrender.com/api/documentation
 
 
 ## Auteur
